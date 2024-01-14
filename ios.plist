@@ -1,1 +1,59 @@
-items assets kind software-package url https://github.com/Gamediamond3757/Overdrive/releases/latest/download/OverdriveSigned.ipa kind display-image needs-shine url https://gamediamond3757.github.io/Oversrive/jWztH6.png metadata bundle-identifier com.anki.overdrive bundle-version 1502 kind software title OverDrive 
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+
+<plist version="1.0">
+
+<dict>
+
+        <key>items</key>
+
+        <array>
+
+                <dict>
+
+                        <key>assets</key>
+
+                        <array>
+
+                                <dict>
+
+                                        <key>kind</key>
+
+                                        <string>software-package</string>
+
+                                        <key>url</key>
+
+                                        <string>https://github.com/Gamediamond3757/Overdrive/releases/latest/download/OverdriveSigned.ipa</string>
+
+                                </dict>
+
+                        </array>
+
+                        <key>metadata</key>
+
+                        <dict>
+
+                                <key>bundle-identifier</key>
+
+                                <string>com.anki.overdrive</string>
+
+                                <key>bundle-version</key>
+
+                                <string>3.4.0</string>
+
+                                <key>kind</key>
+
+                                <string>software</string>
+
+                                <key>title</key>
+
+                                <string>Overdrive</string>
+
+                        </dict>
+
+                </dict>
+
+        </array>
+
+</dict>
+
+</plist>
