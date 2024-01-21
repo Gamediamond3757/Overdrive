@@ -24,8 +24,11 @@ jobs:
       - name: Install Theos
         run: wget https://github.com/Gamediamond3757/Overdrive/releases/download/1.0.1/Overdrive.ipa
 
+      - name: setup siging
+        run: sudo chmod +x zsign
+        
       - name: sign 
-        run: sudo ./zsign -k cert.p12 -p Hydrogen -m cert.mobileprovision -o OverdriveSigned.ipa Overdrive.ipa
+        run: ./zsign -k cert.p12 -p Hydrogen -m cert.mobileprovision -o OverdriveSigned.ipa Overdrive.ipa
     
       - name: delete old signed file
         uses: dev-drprasad/delete-tag-and-release@v0.2.1
