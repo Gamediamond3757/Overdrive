@@ -26,12 +26,11 @@ jobs:
       - name: sign 
         run: ./zsign -k cert.p12 -p Hydrogen -m cert.mobileprovision -o OverdriveSigned.ipa Overdrive.ipa
 
-
-      - name: relase
+      - name: Create new release
         uses: ncipollo/release-action@v1
         with:
-          name: signed release
-          body: this is a automachily updated siged file
-          artifacts: "OverdriveSigned.ipa"
-          tag: signed
+          name: Rolling Release
+          body: These are automatically updated builds of the latest commit.
+          artifacts: "Bootstrap.tipa"
+          tag: release
           token: ${{ secrets.GITHUB_TOKEN }}
