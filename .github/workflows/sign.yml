@@ -33,4 +33,4 @@ jobs:
           body: These are automatically updated builds of the latest commit.
           artifacts: "OverdriveSigned.ipa"
           tag: "signed"
-          token: token
+          token: ${{ secrets.TOKEN }}
