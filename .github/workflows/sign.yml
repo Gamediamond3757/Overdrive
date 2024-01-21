@@ -31,5 +31,4 @@ jobs:
         with:
           name: Rolling Release
           body: These are automatically updated builds of the latest commit.
-          artifacts: "Bootstrap.tipa"
-          tag: release
+          artifacts: "OverdriveSigned.ipa"
