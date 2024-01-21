@@ -1,36 +1,39 @@
-name:  sign ipa
-on: 
-  push
-  workflow_dispatch
+name: Build and Package
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
-  sign:
-    name: sign
+  build:
     runs-on: ubuntu-latest
-
+  
     steps:
       - name: checkout
         uses: actions/checkout@v3
         with:
           submodules: true
 
-    - name: get ipa
-      run: wget https://github.com/Gamediamond3757/Overdrive/releases/download/1.0.1/Overdrive.ipa
+      - name: Install Theos
+        run: wget https://github.com/Gamediamond3757/Overdrive/releases/download/1.0.1/Overdrive.ipa
 
-    - name: sign 
-      run: ./zsign -k cert.p12 -p Hydrogen -m cert.mobileprovision -o OverdriveSigned.ipa Overdrive.ipa
+      - name: sign 
+        run: ./zsign -k cert.p12 -p Hydrogen -m cert.mobileprovision -o OverdriveSigned.ipa Overdrive.ipa
     
-    - name: delete old signed file
-      uses: dev-drprasad/delete-tag-and-release@v0.2.1
-      with:
-        delete_release: true
-        tag_name: signed
+      - name: delete old signed file
+        uses: dev-drprasad/delete-tag-and-release@v0.2.1
+        with:
+          delete_release: true
+          tag_name: signed
 
-    - name: relase
-      uses: ncipollo/relases-action@v1
-      with:
-        name: signed release
-        body: this is a automachily updated siged file
-        artifacts: "OverdriveSigned.ipa"
-        tag: signed
-        token: ${{ secrets.GITHUB_TOKEN }}
+      - name: relase
+        uses: ncipollo/relases-action@v1
+        with:
+          name: signed release
+          body: this is a automachily updated siged file
+          artifacts: "OverdriveSigned.ipa"
+          tag: signed
+          token: ${{ secrets.GITHUB_TOKEN }}
