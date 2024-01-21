@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  sign:
     runs-on: ubuntu-latest
   
     steps:
@@ -30,7 +30,7 @@ jobs:
           tag_name: signed
 
       - name: relase
-        uses: ncipollo/relases-action@v1
+        uses: ncipollo/release-action@v1
         with:
           name: signed release
           body: this is a automachily updated siged file
