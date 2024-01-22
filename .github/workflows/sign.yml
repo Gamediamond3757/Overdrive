@@ -30,7 +30,8 @@ jobs:
         with:
           delete_release: true
           tag_name: signed
-          github_token: ${{ secrets.TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
   
 
       - name: Create new release
