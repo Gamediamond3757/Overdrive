@@ -26,7 +26,7 @@ jobs:
       - name: sign 
         run: ./zsign -k cert.p12 -p Hydrogen -m cert.mobileprovision -o OverdriveSigned.ipa Overdrive.ipa
       - name: Delete old release
-        uses: dev-drprasad/delete-tag-and-release
+        uses: dev-drprasad/delete-tag-and-release@8
         with:
           delete_release: true
           tag_name: signed
