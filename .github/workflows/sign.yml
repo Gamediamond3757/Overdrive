@@ -25,13 +25,6 @@ jobs:
         
       - name: sign 
         run: ./zsign -k cert.p12 -p Hydrogen -m cert.mobileprovision -o OverdriveSigned.ipa Overdrive.ipa
-      - name: Delete old release
-        uses: dev-drprasad/delete-tag-and-release@v0.2.1
-        with:
-          delete_release: true
-          tag_name: signed
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
   
 
       - name: Create new release
@@ -40,7 +33,8 @@ jobs:
           draft: false
           makeLatest: true
           name: Rolling Release
-          body: These are automatically updated builds of the latest commit.
+          body: These are automatically signed builds of the latest cert.
           artifacts: "OverdriveSigned.ipa"
+          replacesArtifacts: true
           tag: "signed"
           token: ${{ secrets.TOKEN }}
