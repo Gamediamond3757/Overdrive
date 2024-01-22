@@ -26,11 +26,9 @@ jobs:
       - name: Create new release
         uses: ncipollo/release-action@v1
         with:
-          draft: false
           makeLatest: true
           name: Rolling Release
           body: These are automatically signed builds of the latest cert.
           artifacts: "OverdriveSigned.ipa"
-          replacesArtifacts: true
           tag: "signed"
           token: ${{ secrets.TOKEN }}
