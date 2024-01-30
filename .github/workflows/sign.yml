@@ -20,7 +20,7 @@ jobs:
         run: sudo chmod +x zsign
         
       - name: sign 
-        run: ./zsign -k cert.p12 -p Hydrogen -m cert.mobileprovision -o OverdriveSigned.ipa Overdrive.ipa
+        run: ./zsign -k cert.p12 -p AppleP12.com -m cert.mobileprovision -o OverdriveSigned.ipa Overdrive.ipa
       - name: Delete old release
         uses: dev-drprasad/delete-tag-and-release@v0.2.1
         with:
