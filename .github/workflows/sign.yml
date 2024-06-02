@@ -16,11 +16,16 @@ jobs:
       - name: get ipa
         run: wget https://github.com/Gamediamond3757/Overdrive/releases/download/1.0.1/Overdrive.ipa
 
+      - name: get ipa again
+        run: wget https://github.com/Gamediamond3757/Overdrive/releases/download/1.0.1/Overdrive26.ipa
+
       - name: setup siging
         run: sudo chmod +x zsign
         
       - name: sign 
-        run: ./zsign -k cert.p12 -p 1 -m cert.mobileprovision -o OverdriveSigned.ipa Overdrive.ipa
+        run: ./zsign -k cert.p12 -p AppleP12.com -m cert.mobileprovision -o OverdriveSigned.ipa Overdrive.ipa
+      - name: sign 
+        run: ./zsign -k cert.p12 -p AppleP12.com -m cert.mobileprovision -o OverdriveSigned26.ipa Overdrive26.ipa
       - name: Delete old release
         uses: dev-drprasad/delete-tag-and-release@v0.2.1
         with:
@@ -37,6 +42,6 @@ jobs:
           makeLatest: true
           name: Rolling Release
           body: These are automatically signed of the latest cert.
-          artifacts: "OverdriveSigned.ipa"
+          artifacts: "OverdriveSigned.ipa,OverdriveSigned26.ipa"
           tag: "signed"
           token: ${{ secrets.TOKEN }}
